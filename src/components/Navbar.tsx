@@ -14,19 +14,17 @@ const Navbar = () => {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-6">
-            <a href="#" className="text-foreground hover:text-primary transition-colors font-medium">产品中心</a>
+            <a href="#" className="text-foreground hover:text-primary transition-colors font-medium">首页</a>
             <a href="#" className="text-foreground hover:text-primary transition-colors font-medium">行业应用</a>
+            <a href="#" className="text-foreground hover:text-primary transition-colors font-medium">产品中心</a>
             <a href="#" className="text-foreground hover:text-primary transition-colors font-medium">关于云深处</a>
             <a href="#" className="text-foreground hover:text-primary transition-colors font-medium">服务支持</a>
-            <a href="#" className="text-foreground hover:text-primary transition-colors font-medium">新闻动态</a>
-            <a href="#" className="text-foreground hover:text-primary transition-colors font-medium">加入我们</a>
+            <a href="#" className="text-foreground hover:text-primary transition-colors font-medium">新闻资讯</a>
           </div>
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Button className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-glow">
-              联系我们
-            </Button>
+            <Button className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-glow">在线咨询</Button>
           </div>
 
           {/* Mobile Menu Button */}
