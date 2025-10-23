@@ -1,18 +1,15 @@
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
 import logo from "@/assets/logo.png";
-
 const Navbar = () => {
-  return (
-    <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-lg bg-background/80 border-b border-border">
+  return <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-lg bg-background/80 border-b border-border">
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex items-center gap-2">
-            <img src={logo} alt="RoboTech Logo" className="w-6 h-auto" />
-            <span className="text-2xl font-bold bg-gradient-cyber bg-clip-text text-transparent">
-              RoboTech
-            </span>
+            <img src={logo} alt="RoboTech Logo" className="w-auto h-6 " />
+            <span className="text-2xl font-bold bg-gradient-cyber bg-clip-text text-transparent mx-[20px]">TOUCH FUTURE
+          </span>
           </div>
 
           {/* Desktop Menu */}
@@ -44,8 +41,6 @@ const Navbar = () => {
           </Button>
         </div>
       </div>
-    </nav>
-  );
+    </nav>;
 };
-
 export default Navbar;
