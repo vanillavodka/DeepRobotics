@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const Navbar = () => {
   return (
@@ -8,9 +9,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-lg bg-gradient-cyber flex items-center justify-center">
-              <span className="text-2xl font-bold text-background">R</span>
-            </div>
+            <img src={logo} alt="RoboTech Logo" className="h-10 w-auto" />
             <span className="text-2xl font-bold bg-gradient-cyber bg-clip-text text-transparent">
               RoboTech
             </span>
