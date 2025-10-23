@@ -33,7 +33,7 @@ const HeroSection = () => {
             触手可及
           </h1>
           
-          <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto">具身智能技术创新与行业应用引领者</p>
+          <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto">云深处 - 具身智能技术创新与行业应用引领者</p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button size="lg" className="group bg-primary hover:bg-primary/90 text-primary-foreground shadow-glow hover:shadow-glow-strong transition-all text-lg px-8 py-6">
