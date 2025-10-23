@@ -13,7 +13,10 @@ const Navbar = () => {
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-6">
+            <a href="#" className="text-foreground hover:text-primary transition-colors font-medium">
+              首页
+            </a>
             <a href="#" className="text-foreground hover:text-primary transition-colors font-medium">
               产品
             </a>
@@ -22,6 +25,9 @@ const Navbar = () => {
             </a>
             <a href="#" className="text-foreground hover:text-primary transition-colors font-medium">
               案例
+            </a>
+            <a href="#" className="text-foreground hover:text-primary transition-colors font-medium">
+              服务
             </a>
             <a href="#" className="text-foreground hover:text-primary transition-colors font-medium">
               关于
