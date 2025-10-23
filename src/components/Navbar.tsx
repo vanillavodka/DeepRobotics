@@ -9,7 +9,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex items-center gap-2">
-            <img src={logo} alt="RoboTech Logo" className="h-10 w-auto" />
+            <img src={logo} alt="RoboTech Logo" className="w-6 h-auto" />
             <span className="text-2xl font-bold bg-gradient-cyber bg-clip-text text-transparent">
               RoboTech
             </span>
