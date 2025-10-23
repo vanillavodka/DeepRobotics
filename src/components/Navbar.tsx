@@ -13,11 +13,13 @@ const Navbar = () => {
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-6">
             <a href="#" className="text-foreground hover:text-primary transition-colors font-medium">产品中心</a>
             <a href="#" className="text-foreground hover:text-primary transition-colors font-medium">行业应用</a>
             <a href="#" className="text-foreground hover:text-primary transition-colors font-medium">关于云深处</a>
             <a href="#" className="text-foreground hover:text-primary transition-colors font-medium">服务支持</a>
+            <a href="#" className="text-foreground hover:text-primary transition-colors font-medium">新闻动态</a>
+            <a href="#" className="text-foreground hover:text-primary transition-colors font-medium">加入我们</a>
           </div>
 
           {/* CTA Button */}
