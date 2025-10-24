@@ -43,7 +43,7 @@ const HeroSection = () => {
             
             <Button size="lg" variant="outline" className="group border-primary/50 hover:border-primary text-foreground hover:bg-primary/10 text-lg px-8 py-6">
               <Play className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
-              观看演示
+              绝影X-20
             </Button>
           </div>
 
