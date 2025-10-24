@@ -55,16 +55,20 @@ const Navbar = () => {
               </button>
               
               {showProductMenu && (
-                <div className="absolute left-0 top-full mt-2 w-48 bg-card border border-border rounded-lg shadow-glow overflow-hidden animate-fade-in z-50">
-                  {products.map((product) => (
-                    <Link
-                      key={product.path}
-                      to={product.path}
-                      className="block px-4 py-3 text-foreground hover:bg-primary/10 hover:text-primary transition-colors"
-                    >
-                      {product.name}
-                    </Link>
-                  ))}
+                <div className="fixed left-0 top-20 w-64 bg-card/95 backdrop-blur-xl border-r border-primary/30 shadow-glow overflow-hidden z-50 animate-slide-in-left">
+                  <div className="p-2">
+                    {products.map((product, idx) => (
+                      <Link
+                        key={product.path}
+                        to={product.path}
+                        className="block px-4 py-3 text-foreground hover:bg-primary/10 hover:text-primary transition-all rounded-lg mb-1 relative overflow-hidden group"
+                        style={{ animationDelay: `${idx * 0.05}s` }}
+                      >
+                        <div className="absolute left-0 top-0 h-full w-1 bg-primary scale-y-0 group-hover:scale-y-100 transition-transform origin-top" />
+                        <span className="relative z-10">{product.name}</span>
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               )}
             </div>
@@ -85,16 +89,20 @@ const Navbar = () => {
               </button>
               
               {showSupportMenu && (
-                <div className="absolute left-0 top-full mt-2 w-48 bg-card border border-border rounded-lg shadow-glow overflow-hidden animate-fade-in z-50">
-                  {support.map((item) => (
-                    <Link
-                      key={item.path}
-                      to={item.path}
-                      className="block px-4 py-3 text-foreground hover:bg-primary/10 hover:text-primary transition-colors"
-                    >
-                      {item.name}
-                    </Link>
-                  ))}
+                <div className="fixed right-0 top-20 w-64 bg-card/95 backdrop-blur-xl border-l border-primary/30 shadow-glow overflow-hidden z-50 animate-slide-in-right">
+                  <div className="p-2">
+                    {support.map((item, idx) => (
+                      <Link
+                        key={item.path}
+                        to={item.path}
+                        className="block px-4 py-3 text-foreground hover:bg-primary/10 hover:text-primary transition-all rounded-lg mb-1 relative overflow-hidden group"
+                        style={{ animationDelay: `${idx * 0.05}s` }}
+                      >
+                        <div className="absolute right-0 top-0 h-full w-1 bg-primary scale-y-0 group-hover:scale-y-100 transition-transform origin-top" />
+                        <span className="relative z-10">{item.name}</span>
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               )}
             </div>
