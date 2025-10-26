@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Menu, ChevronDown } from "lucide-react";
 import logo from "@/assets/logo.png";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
@@ -21,6 +21,28 @@ const Navbar = () => {
     { name: "帮助中心", path: "/help" },
     { name: "下载中心", path: "/downloads" },
   ];
+
+  // Hover delay handlers for dropdown menus
+  const productTimer = useRef<number | null>(null);
+  const supportTimer = useRef<number | null>(null);
+
+  const openProduct = () => {
+    if (productTimer.current) window.clearTimeout(productTimer.current);
+    setShowProductMenu(true);
+  };
+  const closeProductDelayed = () => {
+    if (productTimer.current) window.clearTimeout(productTimer.current);
+    productTimer.current = window.setTimeout(() => setShowProductMenu(false), 200);
+  };
+
+  const openSupport = () => {
+    if (supportTimer.current) window.clearTimeout(supportTimer.current);
+    setShowSupportMenu(true);
+  };
+  const closeSupportDelayed = () => {
+    if (supportTimer.current) window.clearTimeout(supportTimer.current);
+    supportTimer.current = window.setTimeout(() => setShowSupportMenu(false), 200);
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-lg bg-background/80 border-b border-border">
@@ -46,8 +68,8 @@ const Navbar = () => {
             {/* Products Dropdown */}
             <div 
               className="relative group/menu"
-              onMouseEnter={() => setShowProductMenu(true)}
-              onMouseLeave={() => setShowProductMenu(false)}
+              onMouseEnter={openProduct}
+              onMouseLeave={closeProductDelayed}
             >
               <button className="flex items-center gap-1 text-foreground hover:text-primary transition-colors font-medium py-2">
                 产品中心
@@ -57,8 +79,8 @@ const Navbar = () => {
               {showProductMenu && (
                 <>
                   {/* Invisible bridge to prevent gap */}
-                  <div className="fixed left-0 top-20 w-64 h-2 z-40" />
-                  <div className="fixed left-0 top-20 w-64 bg-card/95 backdrop-blur-xl border-r border-primary/30 shadow-glow overflow-hidden z-50 animate-slide-in-left">
+                  <div className="fixed left-0 top-20 w-64 h-2 z-40" onMouseEnter={openProduct} onMouseLeave={closeProductDelayed} />
+                  <div className="fixed left-0 top-20 w-64 bg-card/95 backdrop-blur-xl border-r border-primary/30 shadow-glow overflow-hidden z-50 animate-slide-in-left" onMouseEnter={openProduct} onMouseLeave={closeProductDelayed}>
                     <div className="p-2">
                       {products.map((product, idx) => (
                         <Link
@@ -84,8 +106,8 @@ const Navbar = () => {
             {/* Support Dropdown */}
             <div 
               className="relative group/menu"
-              onMouseEnter={() => setShowSupportMenu(true)}
-              onMouseLeave={() => setShowSupportMenu(false)}
+              onMouseEnter={openSupport}
+              onMouseLeave={closeSupportDelayed}
             >
               <button className="flex items-center gap-1 text-foreground hover:text-primary transition-colors font-medium py-2">
                 服务支持
@@ -95,8 +117,8 @@ const Navbar = () => {
               {showSupportMenu && (
                 <>
                   {/* Invisible bridge to prevent gap */}
-                  <div className="fixed right-0 top-20 w-64 h-2 z-40" />
-                  <div className="fixed right-0 top-20 w-64 bg-card/95 backdrop-blur-xl border-l border-primary/30 shadow-glow overflow-hidden z-50 animate-slide-in-right">
+                  <div className="fixed right-0 top-20 w-64 h-2 z-40" onMouseEnter={openSupport} onMouseLeave={closeSupportDelayed} />
+                  <div className="fixed right-0 top-20 w-64 bg-card/95 backdrop-blur-xl border-l border-primary/30 shadow-glow overflow-hidden z-50 animate-slide-in-right" onMouseEnter={openSupport} onMouseLeave={closeSupportDelayed}>
                     <div className="p-2">
                       {support.map((item, idx) => (
                         <Link
