@@ -2,6 +2,7 @@ import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import VideoModal from "@/components/VideoModal";
+import TechTimeline from "@/components/TechTimeline";
 import { Play, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -127,45 +128,11 @@ const About = () => {
       </section>
 
       {/* Timeline */}
-      <section className="py-20 container mx-auto px-6">
-        <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-cyber bg-clip-text text-transparent">
+      <section className="py-32 container mx-auto px-6 overflow-hidden">
+        <h2 className="text-4xl font-bold text-center mb-20 bg-gradient-cyber bg-clip-text text-transparent">
           发展历程
         </h2>
-        <div className="max-w-6xl mx-auto">
-          <div className="flex justify-center gap-2 mb-12 flex-wrap">
-            {timeline.map((item) => (
-              <button
-                key={item.year}
-                onClick={() => setActiveYear(item.year)}
-                className={`px-6 py-3 rounded-lg font-bold transition-all ${
-                  activeYear === item.year
-                    ? "bg-primary text-primary-foreground shadow-glow scale-110"
-                    : "bg-card border border-primary/20 text-foreground hover:border-primary"
-                }`}
-              >
-                {item.year}
-              </button>
-            ))}
-          </div>
-          <div className="relative">
-            {timeline.map((item) => (
-              <div
-                key={item.year}
-                className={`transition-all duration-500 ${
-                  activeYear === item.year
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 absolute inset-0 pointer-events-none translate-y-4"
-                }`}
-              >
-                <div className="p-8 bg-card border border-primary/20 rounded-lg text-center">
-                  <div className="text-5xl font-bold text-primary mb-4">{item.year}</div>
-                  <h3 className="text-2xl font-bold mb-4">{item.title}</h3>
-                  <p className="text-lg text-muted-foreground">{item.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+        <TechTimeline items={timeline} />
       </section>
 
       {/* Honors */}

@@ -45,31 +45,35 @@ const Navbar = () => {
             
             {/* Products Dropdown */}
             <div 
-              className="relative"
+              className="relative group/menu"
               onMouseEnter={() => setShowProductMenu(true)}
               onMouseLeave={() => setShowProductMenu(false)}
             >
-              <button className="flex items-center gap-1 text-foreground hover:text-primary transition-colors font-medium">
+              <button className="flex items-center gap-1 text-foreground hover:text-primary transition-colors font-medium py-2">
                 产品中心
                 <ChevronDown className="h-4 w-4" />
               </button>
               
               {showProductMenu && (
-                <div className="fixed left-0 top-20 w-64 bg-card/95 backdrop-blur-xl border-r border-primary/30 shadow-glow overflow-hidden z-50 animate-slide-in-left">
-                  <div className="p-2">
-                    {products.map((product, idx) => (
-                      <Link
-                        key={product.path}
-                        to={product.path}
-                        className="block px-4 py-3 text-foreground hover:bg-primary/10 hover:text-primary transition-all rounded-lg mb-1 relative overflow-hidden group"
-                        style={{ animationDelay: `${idx * 0.05}s` }}
-                      >
-                        <div className="absolute left-0 top-0 h-full w-1 bg-primary scale-y-0 group-hover:scale-y-100 transition-transform origin-top" />
-                        <span className="relative z-10">{product.name}</span>
-                      </Link>
-                    ))}
+                <>
+                  {/* Invisible bridge to prevent gap */}
+                  <div className="fixed left-0 top-20 w-64 h-2 z-40" />
+                  <div className="fixed left-0 top-20 w-64 bg-card/95 backdrop-blur-xl border-r border-primary/30 shadow-glow overflow-hidden z-50 animate-slide-in-left">
+                    <div className="p-2">
+                      {products.map((product, idx) => (
+                        <Link
+                          key={product.path}
+                          to={product.path}
+                          className="block px-4 py-3 text-foreground hover:bg-primary/10 hover:text-primary transition-all rounded-lg mb-1 relative overflow-hidden group"
+                          style={{ animationDelay: `${idx * 0.05}s` }}
+                        >
+                          <div className="absolute left-0 top-0 h-full w-1 bg-primary scale-y-0 group-hover:scale-y-100 transition-transform origin-top" />
+                          <span className="relative z-10">{product.name}</span>
+                        </Link>
+                      ))}
+                    </div>
                   </div>
-                </div>
+                </>
               )}
             </div>
 
@@ -79,31 +83,35 @@ const Navbar = () => {
             
             {/* Support Dropdown */}
             <div 
-              className="relative"
+              className="relative group/menu"
               onMouseEnter={() => setShowSupportMenu(true)}
               onMouseLeave={() => setShowSupportMenu(false)}
             >
-              <button className="flex items-center gap-1 text-foreground hover:text-primary transition-colors font-medium">
+              <button className="flex items-center gap-1 text-foreground hover:text-primary transition-colors font-medium py-2">
                 服务支持
                 <ChevronDown className="h-4 w-4" />
               </button>
               
               {showSupportMenu && (
-                <div className="fixed right-0 top-20 w-64 bg-card/95 backdrop-blur-xl border-l border-primary/30 shadow-glow overflow-hidden z-50 animate-slide-in-right">
-                  <div className="p-2">
-                    {support.map((item, idx) => (
-                      <Link
-                        key={item.path}
-                        to={item.path}
-                        className="block px-4 py-3 text-foreground hover:bg-primary/10 hover:text-primary transition-all rounded-lg mb-1 relative overflow-hidden group"
-                        style={{ animationDelay: `${idx * 0.05}s` }}
-                      >
-                        <div className="absolute right-0 top-0 h-full w-1 bg-primary scale-y-0 group-hover:scale-y-100 transition-transform origin-top" />
-                        <span className="relative z-10">{item.name}</span>
-                      </Link>
-                    ))}
+                <>
+                  {/* Invisible bridge to prevent gap */}
+                  <div className="fixed right-0 top-20 w-64 h-2 z-40" />
+                  <div className="fixed right-0 top-20 w-64 bg-card/95 backdrop-blur-xl border-l border-primary/30 shadow-glow overflow-hidden z-50 animate-slide-in-right">
+                    <div className="p-2">
+                      {support.map((item, idx) => (
+                        <Link
+                          key={item.path}
+                          to={item.path}
+                          className="block px-4 py-3 text-foreground hover:bg-primary/10 hover:text-primary transition-all rounded-lg mb-1 relative overflow-hidden group"
+                          style={{ animationDelay: `${idx * 0.05}s` }}
+                        >
+                          <div className="absolute right-0 top-0 h-full w-1 bg-primary scale-y-0 group-hover:scale-y-100 transition-transform origin-top" />
+                          <span className="relative z-10">{item.name}</span>
+                        </Link>
+                      ))}
+                    </div>
                   </div>
-                </div>
+                </>
               )}
             </div>
 
