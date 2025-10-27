@@ -2,8 +2,7 @@ import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import VideoModal from "@/components/VideoModal";
-import TechTimeline from "@/components/TechTimeline";
-import { Play, ChevronDown } from "lucide-react";
+import { Play, ChevronDown, Zap, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const About = () => {
@@ -127,12 +126,127 @@ const About = () => {
         </div>
       </section>
 
-      {/* Timeline */}
-      <section className="py-32 container mx-auto px-6 overflow-hidden">
-        <h2 className="text-4xl font-bold text-center mb-20 bg-gradient-cyber bg-clip-text text-transparent">
-          发展历程
-        </h2>
-        <TechTimeline items={timeline} />
+      {/* Timeline - Futuristic Horizontal Scroll */}
+      <section className="relative py-32 overflow-hidden bg-gradient-to-b from-background via-card/30 to-background">
+        {/* Tech Grid Background */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute inset-0" style={{
+            backgroundImage: 'linear-gradient(hsl(var(--primary) / 0.1) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary) / 0.1) 1px, transparent 1px)',
+            backgroundSize: '50px 50px'
+          }} />
+        </div>
+
+        {/* Scan Lines */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent animate-scan-vertical" />
+        </div>
+
+        <div className="container mx-auto px-6 relative z-10">
+          <h2 className="text-5xl md:text-6xl font-bold text-center mb-4 bg-gradient-cyber bg-clip-text text-transparent">
+            发展历程
+          </h2>
+          <p className="text-center text-muted-foreground mb-20 flex items-center justify-center gap-2">
+            <Sparkles className="w-4 h-4" />
+            TECHNOLOGICAL EVOLUTION TIMELINE
+            <Sparkles className="w-4 h-4" />
+          </p>
+
+          {/* Horizontal Timeline Container */}
+          <div className="relative">
+            {/* Timeline Line with Glow */}
+            <div className="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-primary/0 via-primary to-primary/0 -translate-y-1/2 shadow-[0_0_20px_hsl(var(--primary)/0.5)]" />
+            
+            {/* Animated Pulse on Timeline */}
+            <div className="absolute top-1/2 left-0 w-3 h-3 bg-primary rounded-full -translate-y-1/2 animate-[slide-in-right_8s_ease-in-out_infinite] shadow-[0_0_20px_hsl(var(--primary))]" />
+
+            {/* Timeline Items */}
+            <div className="flex justify-between items-center gap-8 md:gap-12 py-20">
+              {timeline.map((item, index) => (
+                <div
+                  key={item.year}
+                  className="group flex-1 relative"
+                  style={{
+                    animationDelay: `${index * 0.2}s`
+                  }}
+                >
+                  {/* Year Node */}
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+                    <div className="relative">
+                      {/* Outer Glow Ring */}
+                      <div className="absolute inset-0 rounded-full bg-primary/20 blur-xl scale-150 group-hover:scale-[2] transition-transform duration-500" />
+                      
+                      {/* Year Badge */}
+                      <div className="relative w-20 h-20 rounded-full bg-gradient-to-br from-primary to-primary-foreground flex items-center justify-center border-2 border-primary shadow-glow-strong group-hover:scale-110 transition-transform duration-300">
+                        <div className="text-sm font-bold text-primary-foreground">{item.year}</div>
+                        
+                        {/* Rotating Border Effect */}
+                        <div className="absolute inset-0 rounded-full border-2 border-transparent border-t-primary/50 animate-spin" style={{ animationDuration: '3s' }} />
+                      </div>
+
+                      {/* Corner Accents */}
+                      <div className="absolute -top-1 -left-1 w-3 h-3 border-l-2 border-t-2 border-primary opacity-0 group-hover:opacity-100 transition-opacity" />
+                      <div className="absolute -top-1 -right-1 w-3 h-3 border-r-2 border-t-2 border-primary opacity-0 group-hover:opacity-100 transition-opacity" />
+                      <div className="absolute -bottom-1 -left-1 w-3 h-3 border-l-2 border-b-2 border-primary opacity-0 group-hover:opacity-100 transition-opacity" />
+                      <div className="absolute -bottom-1 -right-1 w-3 h-3 border-r-2 border-b-2 border-primary opacity-0 group-hover:opacity-100 transition-opacity" />
+                    </div>
+                  </div>
+
+                  {/* Content Card - Alternating Top/Bottom */}
+                  <div className={`absolute left-1/2 -translate-x-1/2 w-64 ${
+                    index % 2 === 0 ? 'bottom-full mb-32' : 'top-full mt-32'
+                  }`}>
+                    {/* Connection Line */}
+                    <div className={`absolute left-1/2 -translate-x-1/2 w-0.5 bg-gradient-to-b from-primary/50 to-transparent ${
+                      index % 2 === 0 ? 'top-full h-24' : 'bottom-full h-24 rotate-180'
+                    } group-hover:from-primary transition-colors`} />
+
+                    {/* Card */}
+                    <div className="relative p-6 bg-gradient-to-br from-card/95 to-card/70 backdrop-blur-md rounded-lg border border-primary/20 shadow-lg group-hover:border-primary/50 group-hover:shadow-glow transition-all duration-300 transform-gpu hover:scale-105">
+                      {/* Tech Corner Frames */}
+                      <div className="absolute top-0 left-0 w-4 h-4 border-l-2 border-t-2 border-primary/50" />
+                      <div className="absolute top-0 right-0 w-4 h-4 border-r-2 border-t-2 border-primary/50" />
+                      <div className="absolute bottom-0 left-0 w-4 h-4 border-l-2 border-b-2 border-primary/50" />
+                      <div className="absolute bottom-0 right-0 w-4 h-4 border-r-2 border-b-2 border-primary/50" />
+
+                      {/* Scan Line Effect */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+
+                      {/* Status Indicator */}
+                      <div className="flex items-center gap-2 mb-3">
+                        <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                        <div className="text-xs text-primary font-mono uppercase tracking-wider">Active</div>
+                      </div>
+
+                      {/* Content */}
+                      <h3 className="text-xl font-bold mb-2 text-foreground group-hover:text-primary transition-colors">
+                        {item.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        {item.description}
+                      </p>
+
+                      {/* Holographic Line */}
+                      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50" />
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Timeline Navigation */}
+          <div className="flex justify-center gap-4 mt-12">
+            {timeline.map((item) => (
+              <button
+                key={item.year}
+                className="group relative px-4 py-2 bg-card/50 backdrop-blur-sm border border-primary/20 rounded hover:border-primary hover:bg-primary/10 transition-all"
+              >
+                <span className="text-sm font-mono">{item.year}</span>
+                <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity rounded" />
+              </button>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* Honors */}
