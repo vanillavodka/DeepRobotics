@@ -249,22 +249,132 @@ const About = () => {
         </div>
       </section>
 
-      {/* Honors */}
-      <section className="py-20 bg-card/50">
-        <div className="container mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-cyber bg-clip-text text-transparent">
-            公司荣誉
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+      {/* Honors - Futuristic Display */}
+      <section className="relative py-32 overflow-hidden bg-gradient-to-b from-background via-primary/5 to-background">
+        {/* Animated Background Grid */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0" style={{
+            backgroundImage: 'linear-gradient(hsl(var(--primary) / 0.3) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary) / 0.3) 1px, transparent 1px)',
+            backgroundSize: '40px 40px'
+          }} />
+        </div>
+
+        {/* Radial Glow Effect */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/10 rounded-full blur-[120px]" />
+
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="text-center mb-20">
+            <div className="inline-flex items-center gap-3 mb-4">
+              <div className="h-px w-12 bg-gradient-to-r from-transparent to-primary" />
+              <Zap className="w-5 h-5 text-primary animate-pulse" />
+              <span className="text-sm font-mono text-primary uppercase tracking-wider">ACHIEVEMENTS</span>
+              <Zap className="w-5 h-5 text-primary animate-pulse" />
+              <div className="h-px w-12 bg-gradient-to-l from-transparent to-primary" />
+            </div>
+            <h2 className="text-5xl md:text-6xl font-bold bg-gradient-cyber bg-clip-text text-transparent">
+              公司荣誉
+            </h2>
+          </div>
+
+          {/* Hexagonal Grid Layout */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {honors.map((honor, i) => (
               <div
                 key={i}
-                className="p-6 bg-card border border-primary/20 rounded-lg hover:border-primary transition-all text-center group cursor-pointer"
+                className="group relative"
+                style={{
+                  animationDelay: `${i * 0.1}s`
+                }}
               >
-                <div className="text-4xl mb-4 group-hover:scale-110 transition-transform">🏆</div>
-                <div className="font-medium">{honor}</div>
+                {/* Outer Glow Container */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/5 rounded-lg blur-xl opacity-0 group-hover:opacity-100 transition-all duration-500" />
+                
+                {/* Main Card */}
+                <div className="relative p-8 bg-gradient-to-br from-card/90 to-card/50 backdrop-blur-md rounded-lg border border-primary/20 group-hover:border-primary/60 transition-all duration-500 overflow-hidden">
+                  {/* Tech Corner Frames */}
+                  <div className="absolute top-0 left-0 w-6 h-6 border-l-2 border-t-2 border-primary/40 group-hover:border-primary transition-colors" />
+                  <div className="absolute top-0 right-0 w-6 h-6 border-r-2 border-t-2 border-primary/40 group-hover:border-primary transition-colors" />
+                  <div className="absolute bottom-0 left-0 w-6 h-6 border-l-2 border-b-2 border-primary/40 group-hover:border-primary transition-colors" />
+                  <div className="absolute bottom-0 right-0 w-6 h-6 border-r-2 border-b-2 border-primary/40 group-hover:border-primary transition-colors" />
+
+                  {/* Scan Line Animation */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+
+                  {/* Circuit Pattern Background */}
+                  <div className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity">
+                    <div className="absolute top-4 left-4 w-16 h-16 border border-primary/50 rounded-full" />
+                    <div className="absolute top-8 left-8 w-8 h-8 border border-primary/50" />
+                    <div className="absolute bottom-4 right-4 w-12 h-12 border border-primary/50 rotate-45" />
+                  </div>
+
+                  {/* Number Badge */}
+                  <div className="absolute top-4 right-4 w-8 h-8 bg-primary/10 border border-primary/30 rounded flex items-center justify-center">
+                    <span className="text-xs font-mono text-primary">#{String(i + 1).padStart(2, '0')}</span>
+                  </div>
+
+                  {/* Status Indicator */}
+                  <div className="flex items-center gap-2 mb-6">
+                    <div className="w-2 h-2 rounded-full bg-primary animate-pulse shadow-[0_0_10px_hsl(var(--primary))]" />
+                    <span className="text-xs font-mono text-primary uppercase tracking-wider">Certified</span>
+                  </div>
+
+                  {/* Trophy Icon with Glow */}
+                  <div className="relative w-20 h-20 mx-auto mb-6">
+                    {/* Rotating Ring */}
+                    <div className="absolute inset-0 rounded-full border-2 border-primary/20 border-t-primary animate-spin" style={{ animationDuration: '3s' }} />
+                    
+                    {/* Inner Glow */}
+                    <div className="absolute inset-2 bg-gradient-to-br from-primary/30 to-primary/10 rounded-full blur-md group-hover:scale-110 transition-transform" />
+                    
+                    {/* Icon Container */}
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="text-5xl group-hover:scale-125 transition-transform duration-500 filter drop-shadow-[0_0_15px_hsl(var(--primary)/0.5)]">
+                        🏆
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Honor Title */}
+                  <div className="text-center">
+                    <h3 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors leading-relaxed">
+                      {honor}
+                    </h3>
+                  </div>
+
+                  {/* Bottom Holographic Line */}
+                  <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50" />
+
+                  {/* Corner Accent Dots */}
+                  <div className="absolute top-2 left-2 w-1 h-1 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="absolute top-2 right-2 w-1 h-1 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity delay-75" />
+                  <div className="absolute bottom-2 left-2 w-1 h-1 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity delay-150" />
+                  <div className="absolute bottom-2 right-2 w-1 h-1 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity delay-200" />
+                </div>
               </div>
             ))}
+          </div>
+
+          {/* Bottom Stats Bar */}
+          <div className="mt-20 max-w-4xl mx-auto">
+            <div className="relative p-8 bg-gradient-to-r from-card/50 via-card/80 to-card/50 backdrop-blur-md rounded-lg border border-primary/20 overflow-hidden">
+              {/* Animated Scan Line */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/10 to-transparent animate-[slide-in-right_3s_ease-in-out_infinite]" />
+              
+              <div className="relative flex flex-wrap justify-around gap-8 text-center">
+                <div className="group cursor-pointer">
+                  <div className="text-3xl md:text-4xl font-bold text-primary mb-2 group-hover:scale-110 transition-transform">{honors.length}+</div>
+                  <div className="text-sm text-muted-foreground">荣誉资质</div>
+                </div>
+                <div className="group cursor-pointer">
+                  <div className="text-3xl md:text-4xl font-bold text-primary mb-2 group-hover:scale-110 transition-transform">10+</div>
+                  <div className="text-sm text-muted-foreground">发明专利</div>
+                </div>
+                <div className="group cursor-pointer">
+                  <div className="text-3xl md:text-4xl font-bold text-primary mb-2 group-hover:scale-110 transition-transform">5</div>
+                  <div className="text-sm text-muted-foreground">年行业经验</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
