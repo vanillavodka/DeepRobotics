@@ -142,9 +142,14 @@ const Navbar = () => {
             </Link>
           </div>
 
-          {/* CTA Button */}
-          <div className="hidden md:block">
-            <Button className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-glow">
+          {/* CTA Buttons */}
+          <div className="hidden md:flex items-center gap-3">
+            <Link to="/contact">
+              <Button className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-glow">
+                联系我们
+              </Button>
+            </Link>
+            <Button variant="outline" className="border-primary/30 hover:bg-primary/10">
               在线咨询
             </Button>
           </div>
